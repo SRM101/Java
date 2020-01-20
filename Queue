@@ -1,0 +1,96 @@
+import java.util.*;
+public class Queue
+{
+    int arr[]=new int[10];
+    int first=-1;
+    int last=-1;
+
+    boolean IsEmpty()
+    {
+        if(first==-1 && last==-1) return true;
+        else return false;
+    }
+
+    boolean IsFull()
+    {
+        if(last==9)
+        { return true;}
+        else
+            return false;
+    }
+
+    public void Enqueue(int x)
+    {
+        if(IsFull()==true)
+            System.out.println("Done");
+        else if(IsEmpty()==true)
+        {
+            first=0;
+            last=0;
+            arr[last]=x;
+
+        }
+        else
+        {
+            last++;
+            arr[last]=x;
+
+        }
+    }
+
+    public void Dequeue()
+    {
+        if(IsEmpty()==true)
+            System.out.println("Done");
+        else if(first==last)
+        {
+            first=-1;
+            last=-1;
+
+        }
+        else
+        {
+            first++;
+
+        }
+    }
+
+    public void Print()
+    {
+        for(int i=first; i<=last; i++)
+        {
+            System.out.print(arr[i]+" ,");
+        }
+
+    }
+
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        Queue obj=new Queue();
+        {
+            while(true)
+            {
+                System.out.println("ENter 1 for enqueue and 2 for dequeue 3 for print, 4 to end");
+                int a=sc.nextInt();
+                if(a==1)
+                {
+                    System.out.println("Enter number to add");
+                    int n=sc.nextInt();
+                    obj.Enqueue(n);
+                }
+                if(a==2)
+                    obj.Dequeue();
+                if(a==3)
+                    obj.Print();
+                if(a==4)
+                    break;
+            }
+
+    
+    
+        }    
+    }
+}
+
+    
